@@ -42,7 +42,8 @@ s| [[site]]site
 
 | site.path
 | The pathname (i.e., subpath) of the site.url under which the site is hosted (e.g., /docs).
-Only set if site.url is defined.
+This value is empty if site.url is not defined, has no path segment, or matches /.
+Can be removed from the site.url value using a helper (e.g., `deleteSuffix site.url site.path`)
 (since Antora 2.1)
 
 | site.title
@@ -51,6 +52,8 @@ Only set if site.url is defined.
 | site.components
 | A map of all the components in the site, keyed by component name.
 Properties of each component include name, title, url, latest, and versions.
+Properties of each version include name (since 2.3), version, displayVersion, prerelease (if set), title, url, asciidoc (since 2.3), and navigation.
+The navigation property on each version provides access to the navigation menu for that component version.
 
 | site.ui
 | Information about the site UI.
@@ -65,7 +68,8 @@ s| [[page]]page
 | Information about the current page.
 
 | page.title
-| The page title (also used as the primary heading).
+| The page title in HTML format (often used as the primary heading).
+This value may include inline HTML elements and XML character references.
 
 | page.contents
 | The main article content in HTML format.
@@ -90,7 +94,7 @@ Properties include name, title, url, latest, and versions.
 
 | page.componentVersion
 | Information about the component version for the current page.
-Properties include version, displayVersion, prerelease (if set), title, and url.
+Properties include name (since 2.3), version, displayVersion, prerelease (if set), title, url, and asciidoc (since 2.3).
 
 | page.module
 | The name of the module for the current page.
@@ -98,15 +102,19 @@ Properties include version, displayVersion, prerelease (if set), title, and url.
 | page.version
 | The name of the version for the current page.
 
+| page.displayVersion
+| The name of the display version for the current page.
+
 | page.versions
 | All versions of the current page, including the current page.
 Each entry has the properties url, string, and missing.
 
 | page.breadcrumbs
 | An array of breadcrumb items that represent the current selection in the navigation tree.
+Includes text-only and external items.
 
 | page.navigation
-| A collection of navigation links for the current page.
+| The hierarchical navigation menu for the component version of the current page.
 Each navigation item contains the property `content` as well as the optional properties `url` and (child) `items`.
 
 | page.url
@@ -137,13 +145,13 @@ Then, the "Edit the Page" link will not appear.
 | The page layout for the current page.
 
 | page.next
-| The next logical page in the navigation tree.
+| The next reachable page in the navigation tree (skips past text-only and external items).
 
 | page.previous
-| The previous logical page in the navigation tree.
+| The previous reachable page in the navigation tree (skips past text-only and external items).
 
 | page.parent
-| The parent page in the navigation tree. Will resolve to grandparent if parent item is not a page.
+| The parent page in the navigation tree (skips past text-only and external items).
 
 s| env
 | The map of environment variables (sourced from `process.env`).
