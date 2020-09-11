@@ -90,7 +90,7 @@ window.antoraLunr = (function (lunr) {
     return hits
   }
 
-  function createSearchResult(result, store, searchResultDataset) {
+  function createSearchResult (result, store, searchResultDataset) {
     result.forEach(function (item) {
       var url = item.ref
       var hash
@@ -192,7 +192,7 @@ window.antoraLunr = (function (lunr) {
   }
 
   function init (data) {
-    var index = Object.assign({index: lunr.Index.load(data.index), store: data.store})
+    var index = Object.assign({ index: lunr.Index.load(data.index), store: data.store })
     var search = debounce(function () {
       searchIndex(index.index, index.store, searchInput.value)
     }, 100)

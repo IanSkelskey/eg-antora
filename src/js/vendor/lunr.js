@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * lunr - http://lunrjs.com - A bit like Solr, but much smaller and not as bright - 2.3.8
  * Copyright (C) 2019 Oliver Nightingale
@@ -3473,3 +3474,4 @@ lunr.QueryParser.parseBoost = function (parser) {
     return lunr
   }))
 })();
+/* eslint-enable */
