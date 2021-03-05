@@ -28,3 +28,11 @@ footer.footer {
   float: left;
   width: 35%;
 }
+
+.article-footer .article-email-concern {
+  clear: both;
+  margin: auto;
+  width: 85%;
+  text-align: center;
+  font-size: 0.8em;
+}
