@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* eslint-env browser */
 window.antoraLunr = (function (lunr) {
   const scriptAttrs = document.getElementById('search-script').dataset
@@ -213,3 +214,4 @@ window.antoraLunr = (function (lunr) {
     init: init,
   }
 })(window.lunr)
+/* eslint-enable */
