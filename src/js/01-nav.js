@@ -5,13 +5,14 @@
 
   var navContainer = document.querySelector('.nav-container')
   var navToggle = document.querySelector('.nav-toggle')
+  var nav = navContainer.querySelector('.nav')
 
   navToggle.addEventListener('click', showNav)
   navContainer.addEventListener('click', trapEvent)
 
   var menuPanel = navContainer.querySelector('[data-panel=menu]')
   if (!menuPanel) return
-  var nav = navContainer.querySelector('.nav')
+  var explorePanel = navContainer.querySelector('[data-panel=explore]')
 
   var currentPageItem = menuPanel.querySelector('.is-current-page')
   var originalPageItem = currentPageItem
@@ -32,12 +33,14 @@
     }
   })
 
-  nav.querySelector('[data-panel=explore] .context').addEventListener('click', function () {
-    // NOTE logic assumes there are only two panels
-    find(nav, '[data-panel]').forEach(function (panel) {
-      panel.classList.toggle('is-active')
+  if (explorePanel) {
+    explorePanel.querySelector('.context').addEventListener('click', function () {
+      // NOTE logic assumes there are only two panels
+      find(nav, '[data-panel]').forEach(function (panel) {
+        panel.classList.toggle('is-active')
+      })
     })
-  })
+  }
 
   // NOTE prevent text from being selected by double click
   menuPanel.addEventListener('mousedown', function (e) {
