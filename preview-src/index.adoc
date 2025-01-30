@@ -31,6 +31,14 @@ E = mc^2^.
 Eum an doctus <<liber-recusabo,maiestatis efficiantur>>.
 Eu mea inani iriure.footnote:[Quisque porta facilisis tortor, vitae bibendum velit fringilla vitae! Lorem ipsum dolor sit amet, consectetur adipiscing elit.]
 
+[source,tt2]
+----
+[% WRAPPER page.tt2 %]
+  <h1>Welcome to the Antora Documentation Site!</h1>
+  <p>This is the home page of the Antora documentation site.</p>
+[% END %]
+----
+
 [,json]
 ----
 {
