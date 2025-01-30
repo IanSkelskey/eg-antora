@@ -1,0 +1,48 @@
+name: Build and Publish UI Bundle
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Build the UI bundle
+      - name: Build UI Bundle
+        run: npx gulp bundle
+
+      # Step 5: Create a Git Tag
+      - name: Create Git Tag
+        id: tag
+        run: |
+          # Generate a unique tag based on the current timestamp
+          TAG_NAME="v$(date +'%Y%m%d%H%M%S')"
+          echo "TAG_NAME=${TAG_NAME}" >> $GITHUB_ENV
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
+
+      # Step 6: Publish Release
+      - name: Publish Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/ui-bundle.zip
+          tag_name: ${{ env.TAG_NAME }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
