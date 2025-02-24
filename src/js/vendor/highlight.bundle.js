@@ -2,7 +2,7 @@
   'use strict'
 
   var hljs = require('highlight.js/lib/highlight')
-  var { tt2PseudoPerl, tt2 } = require('./highlight-tt2');
+  var { tt2PseudoPerl, tt2 } = require('./highlight-tt2')
   hljs.registerLanguage('asciidoc', require('highlight.js/lib/languages/asciidoc'))
   hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'))
   hljs.registerLanguage('clojure', require('highlight.js/lib/languages/clojure'))
@@ -37,8 +37,8 @@
   hljs.registerLanguage('swift', require('highlight.js/lib/languages/swift'))
   hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'))
   hljs.registerLanguage('yaml', require('highlight.js/lib/languages/yaml'))
-  hljs.registerLanguage('tt2-pseudoperl', tt2PseudoPerl);
-  hljs.registerLanguage('tt2', tt2);
+  hljs.registerLanguage('tt2-pseudoperl', tt2PseudoPerl)
+  hljs.registerLanguage('tt2', tt2)
 
   ;[].slice.call(document.querySelectorAll('pre code.hljs')).forEach(function (node) {
     hljs.highlightBlock(node)
