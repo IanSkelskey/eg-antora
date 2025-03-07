@@ -18,6 +18,7 @@
   --color-jet-80: #191919;
   --color-black: #000;
   --color-evergreen: #446129;
+  --color-evergreen-dark: #2b3a1c;
   /* fonts */
   --rem-base: 16; /* used to compute rem value from desired pixel value (e.g., calc(18 / var(--rem-base) * 1rem) = 18px) */
   --body-font-size: 1.0625em; /* 17px */
@@ -37,9 +38,9 @@
   --scrollbar-thumb-color: var(--color-gray-10);
   --scrollbar_hover-thumb-color: var(--color-gray-30);
   /* navbar */
-  --navbar-background: var(--color-white);
-  --navbar-font-color: var(--color-evergreen);
-  --navbar_hover-background: var(--color-white);
+  --navbar-background: var(--color-evergreen);
+  --navbar-font-color: var(--color-white);
+  --navbar_hover-background: var(--color-evergreen-dark);
   --navbar-button-background: var(--color-white);
   --navbar-button-border-color: var(--panel-border-color);
   --navbar-button-font-color: var(--color-evergreen);
